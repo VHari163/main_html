@@ -38,7 +38,7 @@ const GameBoard = () => {
   // Initialize game
   useEffect(() => {
     loadNewQuestion();
-  }, []);
+  }, [loadNewQuestion]);
 
   // Keyboard Controls
   useEffect(() => {
@@ -71,7 +71,7 @@ const GameBoard = () => {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [gameState, timeLeft, maxTime]);
+  }, [gameState, timeLeft, maxTime, handleTimeUp]);
 
   const loadNewQuestion = useCallback(() => {
     const question = getRandomQuestion();
